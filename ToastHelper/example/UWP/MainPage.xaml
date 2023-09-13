@@ -16,5 +16,6 @@
         <Button x:Name="ImageWithHeaderAndBodyBtn" Click="ImageWithHeaderAndBodyBtn_Click">ImageWithHeaderAndBody</Button>
         <Button x:Name="ImageWithTwoLineHeaderAndBody" Click="ImageWithTwoLineHeaderAndBody_Click">ImageWithTwoLineHeaderAndBody</Button>
         <Button x:Name="ImageWithHeaderAndTwoSingleLineBody" Click="ImageWithHeaderAndTwoSingleLineBody_Click">ImageWithHeaderAndTwoSingleLineBody</Button>
+        <Button x:Name="ToastBuilderBtn" Click="ToastBuilderBtn_Click">ToastBuilder API</Button>
     </StackPanel>
 </Page>

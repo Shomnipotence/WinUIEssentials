@@ -2,6 +2,7 @@
 #include "MainPage.h"
 #include "MainPage.g.cpp"
 #include "../../UWP/ToastTemplate.hpp"
+#include "../../UWP/ToastBuilder.hpp"
 #include <winrt/Windows.UI.Notifications.h>
 
 using namespace winrt;
@@ -64,5 +65,29 @@ namespace winrt::ToastHelper::implementation
 			.Show(ToastTemplates::ImageWithHeaderAndTwoSingleLineBody{ L"ms-appx:///Assets/Windows 11.png", L"Header", L"body#1", L"body#2" });
 	}
 
-}
 
+	void MainPage::ToastBuilderBtn_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+	{
+		using namespace ToastBuilder;
+		winrt::Windows::UI::Notifications::ToastNotificationManager::CreateToastNotifier()
+			.Show(
+				Toast().Duration(Long).Scenario(Reminder).UseButtonStyle(true)
+				(
+					Visual()
+					(
+						Binding().Template(L"ToastText04")
+						(
+							Text().Id(1)(L"headline"),
+							Text().Id(2)(L"body text1"),
+							Text().Id(3)(L"body text2")
+							)
+						),
+					Actions()
+					(
+						Action().Content(L"Accept").Arguments(L"accept")
+					)
+				)
+			);
+	}
+
+}
