@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>WinUIEssential.UWP</id>
+        <version>1.0.2</version>
+        <title>WinUIEssential(UWP)</title>
+        <authors>Peter</authors>
+        <owners></owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Essential helpers for developing WinUI(UWP)</description>
+        <dependencies>
+            <group targetFramework="native"/>
+        </dependencies>
+    </metadata>
+    <files>
+        <!--build/native-->
+        <file src="include/Glyphs.hpp" target="build/native/include"/>
+        <file src="include/ToastBuilder.hpp" target="build/native/include"/>
+        <file src="include/ToastTemplates.hpp" target="build/native/include"/>
+        <file src="WinUIEssential.UWP.targets" target="build/native"/>
+    </files>
+</package>
