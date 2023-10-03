@@ -27,3 +27,4 @@
 #include <winrt/Microsoft.UI.Dispatching.h>
 #include <wil/cppwinrt_helpers.h>
 #include <winrt/Windows.UI.Xaml.Interop.h>
+#include <winrt/WinUI3Package.h>

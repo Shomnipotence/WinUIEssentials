@@ -4,9 +4,8 @@
 namespace WinUI3Example
 {
     [default_interface]
-    runtimeclass MainWindow : Microsoft.UI.Xaml.Window
+    runtimeclass CursorControllerPage : Microsoft.UI.Xaml.Controls.Page
     {
-        MainWindow();
-        Windows.Foundation.Collections.IVector<Object> Pages{ get; };
+        CursorControllerPage();
     }
 }

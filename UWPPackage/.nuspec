@@ -18,5 +18,9 @@
         <file src="include/ToastBuilder.hpp" target="build/native/include"/>
         <file src="include/ToastTemplates.hpp" target="build/native/include"/>
         <file src="WinUIEssential.UWP.targets" target="build/native"/>
+        
+        <!--lib/native-->
+        <file src="..\x64\Debug\UWPPackage\UWPPackage.winmd" target="lib/native"/>
+        <file src="..\x64\Debug\UWPPackage\UWPPackage.dll" target="lib/native"/>
     </files>
 </package>

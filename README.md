@@ -19,13 +19,13 @@ Build the `*Package` project will build the project and pack it with nuget, then
 It should be useful until the [community toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit) provides C++.
 
 ## Content
-|Component|UWP|WinUI3|
+|Component|UWP|WinUI3|Type
 |--|--|--|
-|Glyphs| :white_check_mark: | :white_check_mark:
-|ToastTemplates| :white_check_mark: | :white_check_mark:
-|ToastBuilder | :white_check_mark: | :white_check_mark:
-|SettingsExpander | :white_check_mark: |
-|CursorController | | 
+|Glyphs| :white_check_mark: | :white_check_mark: | Header only + Xaml only
+|ToastTemplates| :white_check_mark: | :white_check_mark: |Header only
+|ToastBuilder | :white_check_mark: | :white_check_mark: |Header only
+|SettingsExpander |  | |WinRT component
+|CursorController | :white_check_mark: | :white_check_mark: |WinRT component
 
 ---
 ## ToastHelper
@@ -126,3 +126,11 @@ Toast().Duration(Long).Scenario(Reminder).UseButtonStyle(true)
 
 ## Glphys --- *namespace `Glyphs`*
 Font glyphs value for Segoe MDL2 Assets fonts.
+
+## CursorController --- *namespace `CursorController`*
+Xaml helper for controlling the cursor type when mouse enters. Usage:
+```xml
+xmlns:essential="using:WinUI3Package"
+...
+<Rectangle Fill="Red" essential:CursorController.Type="Hand"/>
+```

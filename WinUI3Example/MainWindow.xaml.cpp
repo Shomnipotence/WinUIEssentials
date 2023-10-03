@@ -24,7 +24,7 @@ namespace winrt::WinUI3Example::implementation
 		winrt::Microsoft::UI::Xaml::Controls::NavigationView const& sender,
 		winrt::Microsoft::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs const& args)
 	{
-		auto tag = args.SelectedItem().as<winrt::Microsoft::UI::Xaml::Controls::NavigationViewItem>().Tag();
-		ContentFrame().Navigate(s_page[winrt::unbox_value<winrt::hstring>(tag)]);
+		auto tag = args.SelectedItem().as<winrt::hstring>();
+		ContentFrame().Navigate(s_page[tag]);
 	}
 }

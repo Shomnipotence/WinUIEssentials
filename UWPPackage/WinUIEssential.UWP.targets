@@ -7,14 +7,14 @@
     </ItemDefinitionGroup>
     
     <!--Add dll and xaml here-->
-    <!--<ItemGroup>
-        <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\native\CursorController.winmd">
+    <ItemGroup>
+        <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\native\UWPPackage.winmd">
             <IsWinMDFile>true</IsWinMDFile>
-            <Implementation>CursorController.dll</Implementation>
+            <Implementation>UWPPackage.dll</Implementation>
         </Reference>
 
-        <CopyFileToFolders Include="$(MSBuildThisFileDirectory)..\..\lib\native\UserControl.xaml"/>
-    </ItemGroup>-->
+        <!--<CopyFileToFolders Include="$(MSBuildThisFileDirectory)..\..\lib\native\UserControl.xaml"/>-->
+    </ItemGroup>
 
 
 </Project>
