@@ -2,6 +2,9 @@
 A repo dedicated for simplifying C++ development with WinUI2 (Universal Windows Platform) and WinUI3 (Windows App SDK).
 
 ## Usage
+> [!WARNING]
+> Make sure to set your C++ language version to C++20 first!
+
 Open the `WinUIEssential.sln` containing 4 projects:
 - UWPPackage (project for WinUIEssential.UWP nuget package)
 - UWPExample (example gallery for using the above package)
@@ -14,6 +17,15 @@ Build the `*Package` project will build the project and pack it with nuget, then
 > Functionalities for UWP and WinUI3 should be exactly the same unless otherwise noted!
 
 It should be useful until the [community toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit) provides C++.
+
+## Content
+|Component|UWP|WinUI3|
+|--|--|--|
+|Glyphs| :white_check_mark: | :white_check_mark:
+|ToastTemplates| :white_check_mark: | :white_check_mark:
+|ToastBuilder | :white_check_mark: | :white_check_mark:
+|SettingsExpander | :white_check_mark: |
+|CursorController | | 
 
 ---
 ## ToastHelper

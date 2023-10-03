@@ -85,8 +85,8 @@ namespace winrt::UWPExample::implementation
 					Actions()
 					(
 						Action().Content(L"Accept").Arguments(L"accept")
-						)
 					)
+				)
 			);
 	}
 }
