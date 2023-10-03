@@ -19,13 +19,13 @@ Build the `*Package` project will build the project and pack it with nuget, then
 It should be useful until the [community toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit) provides C++.
 
 ## Content
-|Component|UWP|WinUI3|Type
-|--|--|--|
+|Component|UWP|WinUI3|Type|
+|--|--|--|--|
 |Glyphs| :white_check_mark: | :white_check_mark: | Header only + Xaml only
-|ToastTemplates| :white_check_mark: | :white_check_mark: |Header only
-|ToastBuilder | :white_check_mark: | :white_check_mark: |Header only
-|SettingsExpander |  | |WinRT component
-|CursorController | :white_check_mark: | :white_check_mark: |WinRT component
+|ToastTemplates| :white_check_mark: | :white_check_mark: | Header only
+|ToastBuilder | :white_check_mark: | :white_check_mark: | Header only
+|SettingsExpander |  |  | WinRT component
+|CursorController | :white_check_mark: | :white_check_mark: | WinRT component
 
 ---
 ## ToastHelper
