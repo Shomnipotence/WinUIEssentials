@@ -146,6 +146,18 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BoolToVisibilityConverter.h">
+      <DependentUpon>BoolToVisibilityConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="ContainerToBoolConverter.h">
+      <DependentUpon>ContainerToBoolConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="ConverterGroup.h">
+      <DependentUpon>ConverterGroup.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="CursorController.h">
       <DependentUpon>CursorController.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -158,8 +170,30 @@
       <DependentUpon>Placeholder.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="PropertyChangeHelper.hpp" />
+    <ClInclude Include="ReferenceToBoolConverter.h">
+      <DependentUpon>ReferenceToBoolConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="StringToBoolConverter.h">
+      <DependentUpon>StringToBoolConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="WinUIIncludes.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoolToVisibilityConverter.cpp">
+      <DependentUpon>BoolToVisibilityConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="ContainerToBoolConverter.cpp">
+      <DependentUpon>ContainerToBoolConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="ConverterGroup.cpp">
+      <DependentUpon>ConverterGroup.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="CursorController.cpp">
       <DependentUpon>CursorController.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -172,6 +206,14 @@
       <DependentUpon>Placeholder.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
+    <ClCompile Include="ReferenceToBoolConverter.cpp">
+      <DependentUpon>ReferenceToBoolConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="StringToBoolConverter.cpp">
+      <DependentUpon>StringToBoolConverter.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".nuspec" />
@@ -182,10 +224,25 @@
     <None Include="PropertySheet.props" />
   </ItemGroup>
   <ItemGroup>
+    <Midl Include="BoolToVisibilityConverter.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="ContainerToBoolConverter.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="ConverterGroup.idl">
+      <SubType>Designer</SubType>
+    </Midl>
     <Midl Include="CursorController.idl">
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Placeholder.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="ReferenceToBoolConverter.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="StringToBoolConverter.idl">
       <SubType>Designer</SubType>
     </Midl>
   </ItemGroup>

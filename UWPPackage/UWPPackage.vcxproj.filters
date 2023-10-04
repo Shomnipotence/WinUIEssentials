@@ -7,6 +7,9 @@
     <Filter Include="Controls">
       <UniqueIdentifier>{db76334f-9dff-4acb-8cdb-6fdfead70be6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Converters">
+      <UniqueIdentifier>{858a7c4a-4e66-4978-9d25-d86fd71e33eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -23,6 +26,12 @@
     <ClInclude Include="include\ToastTemplates.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="WinUIIncludes.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyChangeHelper.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="UWPPackage.def" />
@@ -35,5 +44,20 @@
   <ItemGroup>
     <Midl Include="Placeholder.idl" />
     <Midl Include="CursorController.idl" />
+    <Midl Include="BoolToVisibilityConverter.idl">
+      <Filter>Converters</Filter>
+    </Midl>
+    <Midl Include="ContainerToBoolConverter.idl">
+      <Filter>Converters</Filter>
+    </Midl>
+    <Midl Include="StringToBoolConverter.idl">
+      <Filter>Converters</Filter>
+    </Midl>
+    <Midl Include="ReferenceToBoolConverter.idl">
+      <Filter>Converters</Filter>
+    </Midl>
+    <Midl Include="ConverterGroup.idl">
+      <Filter>Converters</Filter>
+    </Midl>
   </ItemGroup>
 </Project>

@@ -8,6 +8,12 @@
     <Page Include="ToastPage.xaml">
       <Filter>Pages</Filter>
     </Page>
+    <Page Include="CursorControllerPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="ConvertersPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl" />

@@ -26,6 +26,12 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 |ToastBuilder | :white_check_mark: | :white_check_mark: | Header only
 |SettingsExpander |  |  | WinRT component
 |CursorController | :white_check_mark: | :white_check_mark: | WinRT component
+|PropertyChangeHelper | :white_check_mark: | :white_check_mark: | Header only
+|BoolToVisibilityConverter | :white_check_mark: | :white_check_mark: | WinRT component
+|ContainerToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
+|StringToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
+|ReferenceToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
+|ConverterGroup | :white_check_mark: | :white_check_mark: | WinRT component
 
 ---
 ## ToastHelper
@@ -128,9 +134,56 @@ Toast().Duration(Long).Scenario(Reminder).UseButtonStyle(true)
 Font glyphs value for Segoe MDL2 Assets fonts.
 
 ## CursorController --- *namespace `CursorController`*
-Xaml helper for controlling the cursor type when mouse enters. Usage:
+Xaml helper for controlling the cursor type when mouse enters. 
+Value for `Type` is [CoreCursorType enum](https://learn.microsoft.com/en-us/uwp/api/windows.ui.core.corecursortype?view=winrt-22621). Usage:
 ```xml
 xmlns:essential="using:WinUI3Package"
 ...
 <Rectangle Fill="Red" essential:CursorController.Type="Hand"/>
 ```
+
+## PropertyChangeHelper --- *namespace `MvvmHelper`*
+Helper for `OneWay` binding.
+
+Usage: 
+1. Inherit `Windows.UI.Xaml.Data.INotifyPropertyChanged` in `idl`
+```
+[default_interface]
+runtimeclass MyPage : Windows.UI.Xaml.Controls.Page, Windows.UI.Xaml.Data.INotifyPropertyChanged
+{
+    ...
+};
+```
+
+2. Inherit from this class in the implementation class.
+```cpp
+/*MyPage.xaml.h*/
+#include <include/PropertyChangeHelper.hpp>
+
+namespace winrt::<MyProject>::implementation
+{
+    struct MyPage : MyMusicT<MyMusic>, MvvmHelper::PropertyChangeHelper<MyMusic>
+    {
+        int m_value;
+        void Value(int newValue)
+        {
+            compareAndRaise(m_value, newValue, L"Value");
+        };
+    }
+}
+```
+
+## Converters
+- bool -> Visibility *namespace `BoolToVisibilityConverter`*
+- container (IVector, IMap) -> bool *namespace `ContainerToBoolConverter`*
+- reference (any WinRT runtime type) -> bool *namespace `ReferenceToBoolConverter`*
+- String -> bool *namespace `StringToBoolConverter`*
+- ConverterGroups *namespace `ConverterGroups`*:
+  + define series of converters, that convert value from converter1 -> converter2 -> ...
+  + usage:
+  ```xml
+   <essential:ConverterGroup x:Key="StringToVisibilityConverter">
+       <essential:StringToBoolConverter/>
+       <essential:BoolToVisibilityConverter/>
+   </essential:ConverterGroup>
+  ```

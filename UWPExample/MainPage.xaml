@@ -7,11 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <NavigationView SelectionChanged="NavigationView_SelectionChanged" IsSettingsVisible="False">
-        <NavigationView.MenuItems>
-            <NavigationViewItem Tag="ToastPage" Content="ToastPage"/>
-        </NavigationView.MenuItems>
-
+    <NavigationView SelectionChanged="NavigationView_SelectionChanged" IsSettingsVisible="False" MenuItemsSource="{x:Bind Pages}">
         <Frame x:Name="ContentFrame"/>
     </NavigationView>
 </Page>

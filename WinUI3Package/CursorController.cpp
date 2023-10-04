@@ -37,7 +37,7 @@ namespace winrt::WinUI3Package::implementation
 		auto value = winrt::unbox_value<winrt::Windows::UI::Core::CoreCursorType>(e.NewValue());
 		element.PointerEntered([value](auto sender, auto)
 			{
-				winrt::Windows::UI::Core::CoreCursor cursor{ value, 1 };
+					winrt::Windows::UI::Core::CoreCursor cursor{ value, 1 };
 				sender.as<winrt::Microsoft::UI::Xaml::UIElement>().ProtectedCursor(winrt::Microsoft::UI::Input::InputCursor::CreateFromCoreCursor(cursor));
 			}
 		);
