@@ -1,13 +1,12 @@
 ﻿#pragma once
 
-#include "ContainerToBoolConverter.g.h"
-#include "ReverseConverterBase.hpp"
+#include "NegateBoolConverter.g.h"
 
 namespace winrt::UWPPackage::implementation
 {
-    struct ContainerToBoolConverter : ContainerToBoolConverterT<ContainerToBoolConverter>, ReverseConverterBase
+    struct NegateBoolConverter : NegateBoolConverterT<NegateBoolConverter>
     {
-        ContainerToBoolConverter() = default;
+        NegateBoolConverter() = default;
 
         winrt::Windows::Foundation::IInspectable Convert(
             winrt::Windows::Foundation::IInspectable const& value,
@@ -27,7 +26,7 @@ namespace winrt::UWPPackage::implementation
 
 namespace winrt::UWPPackage::factory_implementation
 {
-    struct ContainerToBoolConverter : ContainerToBoolConverterT<ContainerToBoolConverter, implementation::ContainerToBoolConverter>
+    struct NegateBoolConverter : NegateBoolConverterT<NegateBoolConverter, implementation::NegateBoolConverter>
     {
     };
 }

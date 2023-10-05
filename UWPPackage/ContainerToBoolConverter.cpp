@@ -21,7 +21,7 @@ namespace winrt::UWPPackage::implementation
             boolValue = container->Size();
         }
 
-        if (winrt::unbox_value<winrt::hstring>(parameter) == L"Reverse")
+        if (Reverse() || (parameter && winrt::unbox_value<winrt::hstring>(parameter) == L"Reverse"))
             boolValue = !boolValue;
 
         return winrt::box_value(boolValue);

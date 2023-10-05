@@ -26,10 +26,16 @@
     <ClInclude Include="include\ToastTemplates.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="WinUIIncludes.hpp">
+    <ClInclude Include="ReverseConverterBase.hpp">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PropertyChangeHelper.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="PropertyChangeHelper.hpp">
+    <ClInclude Include="include\WinUIIncludes.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BadgeGlyphs.hpp">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -57,6 +63,9 @@
       <Filter>Converters</Filter>
     </Midl>
     <Midl Include="ConverterGroup.idl">
+      <Filter>Converters</Filter>
+    </Midl>
+    <Midl Include="NegateBoolConverter.idl">
       <Filter>Converters</Filter>
     </Midl>
   </ItemGroup>

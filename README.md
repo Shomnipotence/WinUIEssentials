@@ -21,12 +21,15 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 ## Content
 |Component|UWP|WinUI3|Type|
 |--|--|--|--|
+|WinUIIncludes| :white_check_mark: | :negative_squared_cross_mark: | Header only
 |Glyphs| :white_check_mark: | :white_check_mark: | Header only + Xaml only
+|BadgeGlyphs| :white_check_mark: | :white_check_mark: | Header only
 |ToastTemplates| :white_check_mark: | :white_check_mark: | Header only
 |ToastBuilder | :white_check_mark: | :white_check_mark: | Header only
 |SettingsExpander |  |  | WinRT component
 |CursorController | :white_check_mark: | :white_check_mark: | WinRT component
 |PropertyChangeHelper | :white_check_mark: | :white_check_mark: | Header only
+|NegateBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
 |BoolToVisibilityConverter | :white_check_mark: | :white_check_mark: | WinRT component
 |ContainerToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
 |StringToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
@@ -175,6 +178,7 @@ namespace winrt::<MyProject>::implementation
 
 ## Converters
 - bool -> Visibility *namespace `BoolToVisibilityConverter`*
+- bool negation *namespace `NegateBoolConverter`*
 - container (IVector, IMap) -> bool *namespace `ContainerToBoolConverter`*
 - reference (any WinRT runtime type) -> bool *namespace `ReferenceToBoolConverter`*
 - String -> bool *namespace `StringToBoolConverter`*
@@ -187,3 +191,18 @@ namespace winrt::<MyProject>::implementation
        <essential:BoolToVisibilityConverter/>
    </essential:ConverterGroup>
   ```
+
+## BadgeGlyphs --- *namespace `BadgeGlyphs`*
+Helpers for creating badge notification xml.
+Usage:
+```cpp
+#include <include/BadgeGlyphs.hpp>
+
+//glyph badge
+winrt::Windows::UI::Notifications::BadgeUpdateManager::CreateBadgeUpdaterForApplication()
+	.Update(BadgeGlyphs::MakeBadgeNotification(BadgeGlyphs::Alert));
+
+//number badge
+winrt::Windows::UI::Notifications::BadgeUpdateManager::CreateBadgeUpdaterForApplication()
+	.Update(BadgeGlyphs::MakeBadgeNotification(1));
+```

@@ -1,10 +1,11 @@
 ﻿#pragma once
 
 #include "ReferenceToBoolConverter.g.h"
+#include "ReverseConverterBase.hpp"
 
 namespace winrt::UWPPackage::implementation
 {
-    struct ReferenceToBoolConverter : ReferenceToBoolConverterT<ReferenceToBoolConverter>
+    struct ReferenceToBoolConverter : ReferenceToBoolConverterT<ReferenceToBoolConverter>, ReverseConverterBase
     {
         ReferenceToBoolConverter() = default;
 

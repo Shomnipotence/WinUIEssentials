@@ -13,7 +13,7 @@ namespace winrt::UWPPackage::implementation
         [[maybe_unused]] winrt::hstring const& language)
     {
         auto boolValue = static_cast<bool>(value);
-        if (parameter && winrt::unbox_value<winrt::hstring>(parameter) == L"Reverse")
+        if (Reverse() || (parameter && winrt::unbox_value<winrt::hstring>(parameter) == L"Reverse"))
             boolValue = !boolValue;
 
         return winrt::box_value(boolValue);

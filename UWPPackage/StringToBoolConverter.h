@@ -1,10 +1,11 @@
 ﻿#pragma once
 
 #include "StringToBoolConverter.g.h"
+#include "ReverseConverterBase.hpp"
 
 namespace winrt::UWPPackage::implementation
 {
-    struct StringToBoolConverter : StringToBoolConverterT<StringToBoolConverter>
+    struct StringToBoolConverter : StringToBoolConverterT<StringToBoolConverter>, ReverseConverterBase
     {
         StringToBoolConverter() = default;
 

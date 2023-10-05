@@ -14,6 +14,9 @@
     <Page Include="ConvertersPage.xaml">
       <Filter>Pages</Filter>
     </Page>
+    <Page Include="BadgePage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl" />

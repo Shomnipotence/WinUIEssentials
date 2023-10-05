@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>WinUIEssential.UWP</id>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
         <title>WinUIEssential(UWP)</title>
         <authors>Peter</authors>
         <owners></owners>
@@ -17,6 +17,9 @@
         <file src="include/Glyphs.hpp" target="build/native/include"/>
         <file src="include/ToastBuilder.hpp" target="build/native/include"/>
         <file src="include/ToastTemplates.hpp" target="build/native/include"/>
+        <file src="include/PropertyChangeHelper.hpp" target="build/native/include"/>
+        <file src="include/BadgeGlyphs.hpp" target="build/native/include"/>
+        <file src="include/WinUIIncludes.hpp" target="build/native/include"/>
         <file src="WinUIEssential.UWP.targets" target="build/native"/>
         
         <!--lib/native-->

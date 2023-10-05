@@ -9,5 +9,6 @@ namespace UWPPackage
     runtimeclass ReferenceToBoolConverter : Windows.UI.Xaml.Data.IValueConverter
     {
         ReferenceToBoolConverter();
+        Boolean Reverse;
     }
 }

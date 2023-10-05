@@ -32,7 +32,8 @@ namespace winrt::UWPExample::implementation
         {
             {L"ToastPage", winrt::xaml_typename<UWPExample::ToastPage>()},
             {L"CursorControllerPage", winrt::xaml_typename<UWPExample::CursorControllerPage>()},
-            {L"ConvertersPage", winrt::xaml_typename<UWPExample::ConvertersPage>()}
+            {L"ConvertersPage", winrt::xaml_typename<UWPExample::ConvertersPage>()},
+            {L"BadgePage", winrt::xaml_typename<UWPExample::BadgePage>()}
         };
     };
 }

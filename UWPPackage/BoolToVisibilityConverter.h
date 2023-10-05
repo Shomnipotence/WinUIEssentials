@@ -1,10 +1,11 @@
 ﻿#pragma once
 
 #include "BoolToVisibilityConverter.g.h"
+#include "ReverseConverterBase.hpp"`
 
 namespace winrt::UWPPackage::implementation
 {
-    struct BoolToVisibilityConverter : BoolToVisibilityConverterT<BoolToVisibilityConverter>
+    struct BoolToVisibilityConverter : BoolToVisibilityConverterT<BoolToVisibilityConverter>, ReverseConverterBase
     {
         BoolToVisibilityConverter() = default;
 

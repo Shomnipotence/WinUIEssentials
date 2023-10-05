@@ -9,5 +9,6 @@ namespace UWPPackage
     runtimeclass BoolToVisibilityConverter : Windows.UI.Xaml.Data.IValueConverter
     {
         BoolToVisibilityConverter();
+        Boolean Reverse;
     }
 }
