@@ -8,6 +8,7 @@
 #endif
 #include <ToastTemplates.hpp>
 #include <ToastBuilder.hpp>
+#include <winrt/Microsoft.Windows.AppNotifications.Builder.h>
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
@@ -80,24 +81,32 @@ namespace winrt::WinUI3Example::implementation
 	void ToastPage::ToastBuilderBtn_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
 	{
 		using namespace ToastBuilder;
-		winrt::Windows::UI::Notifications::ToastNotificationManager::CreateToastNotifier()
-			.Show(
-				Toast().Duration(Long).Scenario(Reminder).UseButtonStyle(true)
-				(
-					Visual()
-					(
-						Binding().Template(L"ToastText04")
-						(
-							Text().Id(1)(L"headline"),
-							Text().Id(2)(L"body text1"),
-							Text().Id(3)(L"body text2")
-							)
-						),
-					Actions()
-					(
-						Action().Content(L"Accept").Arguments(L"accept")
-						)
-					)
-			);
+		//winrt::Windows::UI::Notifications::ToastNotificationManager::CreateToastNotifier()
+		//	.Show(
+		//		Toast().Duration(Long).Scenario(Reminder).UseButtonStyle(true)
+		//		(
+		//			Visual()
+		//			(
+		//				Binding().Template(L"ToastText04")
+		//				(
+		//					Text().Id(1)(L"headline"),
+		//					Text().Id(2)(L"body text1"),
+		//					Text().Id(3)(L"body text2")
+		//					)
+		//				),
+		//			Actions()
+		//			(
+		//				Action().Content(L"Accept").Arguments(L"accept")
+		//				)
+		//			)
+		//	);
+
+		winrt::Microsoft::Windows::AppNotifications::Builder::AppNotificationBuilder builder;
+		winrt::Microsoft::Windows::AppNotifications::Builder::AppNotificationButton button;
+		button.AddArgument(L"key", L"value");
+		builder.AddButton(button);
+
+		auto result = builder.BuildNotification().Payload();
+		OutputDebugString(result.data());
 	}
 }

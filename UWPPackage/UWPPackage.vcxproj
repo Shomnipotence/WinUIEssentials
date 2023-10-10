@@ -101,7 +101,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BuildWinUIEssential;_DEBUG;_WINRT_DLL;WIN32_LEAN_AND_MEAN;WINRT_LEAN_AND_MEAN;_WINDLL;_UNICODE;UNICODE;__WRL_NO_DEFAULT_LIB__</PreprocessorDefinitions>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">stdcpp20</LanguageStandard>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">stdcpp20</LanguageStandard>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp20</LanguageStandard>
@@ -122,7 +122,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
     <ClCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BuildWinUIEssential;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">stdcpp20</LanguageStandard>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">stdcpp20</LanguageStandard>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdcpp20</LanguageStandard>
@@ -154,6 +154,10 @@
       <DependentUpon>ContainerToBoolConverter.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="ControlSizeTrigger.h">
+      <DependentUpon>ControlSizeTrigger.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="ConverterGroup.h">
       <DependentUpon>ConverterGroup.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -162,11 +166,14 @@
       <DependentUpon>CursorController.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Export.h" />
     <ClInclude Include="include\BadgeGlyphs.hpp" />
     <ClInclude Include="include\Glyphs.hpp" />
     <ClInclude Include="include\PropertyChangeHelper.hpp" />
+    <ClInclude Include="include\Taskbar.h" />
     <ClInclude Include="include\ToastBuilder.hpp" />
     <ClInclude Include="include\ToastTemplates.hpp" />
+    <ClInclude Include="include\WindowHelper.hpp" />
     <ClInclude Include="include\WinUIIncludes.hpp" />
     <ClInclude Include="NegateBoolConverter.h">
       <DependentUpon>NegateBoolConverter.idl</DependentUpon>
@@ -186,6 +193,14 @@
       <DependentUpon>StringToBoolConverter.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="Triggers\IsEqualStateTrigger.h">
+      <DependentUpon>Triggers\IsEqualStateTrigger.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Triggers\IsNullOrEmptyStateTrigger.h">
+      <DependentUpon>Triggers\IsNullOrEmptyStateTrigger.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BoolToVisibilityConverter.cpp">
@@ -196,6 +211,10 @@
       <DependentUpon>ContainerToBoolConverter.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
+    <ClCompile Include="ControlSizeTrigger.cpp">
+      <DependentUpon>ControlSizeTrigger.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="ConverterGroup.cpp">
       <DependentUpon>ConverterGroup.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -204,6 +223,8 @@
       <DependentUpon>CursorController.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
+    <ClCompile Include="include\Taskbar.cpp" />
+    <ClCompile Include="include\WindowHelper.cpp" />
     <ClCompile Include="NegateBoolConverter.cpp">
       <DependentUpon>NegateBoolConverter.idl</DependentUpon>
       <SubType>Code</SubType>
@@ -224,6 +245,14 @@
       <DependentUpon>StringToBoolConverter.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
+    <ClCompile Include="Triggers\IsEqualStateTrigger.cpp">
+      <DependentUpon>Triggers\IsEqualStateTrigger.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="Triggers\IsNullOrEmptyStateTrigger.cpp">
+      <DependentUpon>Triggers\IsNullOrEmptyStateTrigger.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".nuspec" />
@@ -238,6 +267,9 @@
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="ContainerToBoolConverter.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="ControlSizeTrigger.idl">
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="ConverterGroup.idl">
@@ -256,6 +288,12 @@
       <SubType>Designer</SubType>
     </Midl>
     <Midl Include="StringToBoolConverter.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Triggers\IsEqualStateTrigger.idl">
+      <SubType>Designer</SubType>
+    </Midl>
+    <Midl Include="Triggers\IsNullOrEmptyStateTrigger.idl">
       <SubType>Designer</SubType>
     </Midl>
   </ItemGroup>

@@ -21,7 +21,7 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 ## Content
 |Component|UWP|WinUI3|Type|
 |--|--|--|--|
-|WinUIIncludes| :white_check_mark: | :negative_squared_cross_mark: | Header only
+|WinUIIncludes| :white_check_mark: | :x: | Header only
 |Glyphs| :white_check_mark: | :white_check_mark: | Header only + Xaml only
 |BadgeGlyphs| :white_check_mark: | :white_check_mark: | Header only
 |ToastTemplates| :white_check_mark: | :white_check_mark: | Header only
@@ -35,6 +35,9 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 |StringToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
 |ReferenceToBoolConverter | :white_check_mark: | :white_check_mark: | WinRT component
 |ConverterGroup | :white_check_mark: | :white_check_mark: | WinRT component
+|IsEqualStateTrigger| :white_check_mark: | :white_check_mark: | WinRT component
+|IsNullOrEmptyStateTrigger | :white_check_mark: | :white_check_mark: | WinRT component
+|ControlSizeTrigger | :white_check_mark: | :white_check_mark: | WinRT component
 
 ---
 ## ToastHelper

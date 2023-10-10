@@ -10,10 +10,15 @@
     <Filter Include="Converters">
       <UniqueIdentifier>{858a7c4a-4e66-4978-9d25-d86fd71e33eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Triggers">
+      <UniqueIdentifier>{521fd732-a0d4-4420-a284-7ff5c1997bb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="include\Taskbar.cpp" />
+    <ClCompile Include="include\WindowHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -38,6 +43,13 @@
     <ClInclude Include="include\BadgeGlyphs.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\Taskbar.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\WindowHelper.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Export.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="UWPPackage.def" />
@@ -67,6 +79,15 @@
     </Midl>
     <Midl Include="NegateBoolConverter.idl">
       <Filter>Converters</Filter>
+    </Midl>
+    <Midl Include="Triggers\IsEqualStateTrigger.idl">
+      <Filter>Triggers</Filter>
+    </Midl>
+    <Midl Include="Triggers\IsNullOrEmptyStateTrigger.idl">
+      <Filter>Triggers</Filter>
+    </Midl>
+    <Midl Include="ControlSizeTrigger.idl">
+      <Filter>Triggers</Filter>
     </Midl>
   </ItemGroup>
 </Project>

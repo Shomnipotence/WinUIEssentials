@@ -4,9 +4,38 @@
 #include <string_view>
 #include <winrt/Windows.Data.Xml.Dom.h>
 #include <winrt/Windows.UI.Notifications.h>
+#include <winrt/Windows.ApplicationModel.Activation.h>
+#include <unordered_map>
+#include <functional>
 
 namespace ToastBuilder
 {
+    class ToastNotificationHandler
+    {
+        std::unordered_map<winrt::hstring, std::function<void(winrt::Windows::ApplicationModel::Activation::ToastNotificationActivatedEventArgs)>> m_actionHandler;
+    public:
+        static ToastNotificationHandler& GetInstance()
+        {
+            static ToastNotificationHandler s_instance;
+            return s_instance;
+        }
+
+        template<typename Handler>
+        void HandleAction(winrt::hstring arg, Handler&& handler)
+        {
+            m_actionHandler.emplace(arg, std::forward<Handler>(handler));
+        }
+
+        void OnActivated(winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs const& args)
+        {
+            if (args.Kind() != winrt::Windows::ApplicationModel::Activation::ActivationKind::ToastNotification)
+                return;
+
+            auto toastArgs = args.as<winrt::Windows::ApplicationModel::Activation::ToastNotificationActivatedEventArgs>();
+            if (auto iter = m_actionHandler.find(toastArgs.Argument()); iter != m_actionHandler.end())
+                iter->second(toastArgs);
+        }
+    };
 #pragma region ForwardDeclaration
 	class Toast;
 	class Visual;
@@ -321,7 +350,10 @@ namespace ToastBuilder
 
             toastElement
                 << m_launch
-                << m_displayTimeStamp;
+                << m_duration
+                << m_displayTimeStamp
+                << m_scenario
+                << m_useButtonStyle;
 
             m_doc.AppendChild(toastElement);
 
@@ -723,6 +755,7 @@ namespace ToastBuilder
         PropertyValue<std::wstring> m_hintInputId{ L"hint-inputid" };
         PropertyValue<std::wstring> m_hintButtonStyle{ L"hint-buttonStyle" };
         PropertyValue<std::wstring> m_hintToolTip{ L"hint-toolTip" };
+        std::function<void(Action)> m_handler;
     public:
         Action& Content(std::wstring content)
         {
@@ -772,6 +805,13 @@ namespace ToastBuilder
             return *this;
         }
 
+        template<typename Handler>
+        Action& Click(Handler&& handler)
+        {
+            m_handler = std::forward<Handler>(handler);
+            return *this;
+        }
+
         winrt::Windows::Data::Xml::Dom::XmlElement Get(winrt::Windows::Data::Xml::Dom::XmlDocument& root) override
         {
             return internals::MakeElement(
@@ -786,6 +826,11 @@ namespace ToastBuilder
                 m_hintButtonStyle,
                 m_hintToolTip
             );
+        }
+
+        ~Action()
+        {
+            ToastNotificationHandler::GetInstance().HandleAction(m_arguments.value->data(), std::move(m_handler));
         }
     };
 
@@ -885,4 +930,5 @@ namespace ToastBuilder
             return internals::MakeElement(L"header", root, m_id, m_title, m_arguments, m_activationType);
         }
     };
+
 }

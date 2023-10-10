@@ -15,6 +15,10 @@
 
         <!--<CopyFileToFolders Include="$(MSBuildThisFileDirectory)..\..\lib\native\UserControl.xaml"/>-->
     </ItemGroup>
-
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <Link>
+            <AdditionalDependencies>$(MSBuildThisFileDirectory)..\..\lib\native\$(Configuration)\$(Platform)\UWPPackage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+        </Link>
+    </ItemDefinitionGroup>
 
 </Project>

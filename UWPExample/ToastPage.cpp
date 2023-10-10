@@ -80,11 +80,17 @@ namespace winrt::UWPExample::implementation
 							Text().Id(1)(L"headline"),
 							Text().Id(2)(L"body text1"),
 							Text().Id(3)(L"body text2")
-							)
-						),
+						)
+					),
 					Actions()
 					(
 						Action().Content(L"Accept").Arguments(L"accept")
+						.Click([](auto)
+						{
+							winrt::Windows::UI::Xaml::Controls::ContentDialog dialog;
+							dialog.Content(winrt::box_value(L"Accept clicked"));
+							dialog.ShowAsync();
+						})
 					)
 				)
 			);

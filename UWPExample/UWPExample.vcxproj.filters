@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="MainPage.xaml" />
     <Page Include="ToastPage.xaml">
       <Filter>Pages</Filter>
@@ -15,6 +12,12 @@
       <Filter>Pages</Filter>
     </Page>
     <Page Include="BadgePage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="TaskbarPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="TriggersPage.xaml">
       <Filter>Pages</Filter>
     </Page>
   </ItemGroup>
@@ -71,5 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Filter>Pages</Filter>
+    </ApplicationDefinition>
   </ItemGroup>
 </Project>

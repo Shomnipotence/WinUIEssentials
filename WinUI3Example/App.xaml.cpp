@@ -37,12 +37,24 @@ App::App()
 #endif
 }
 
+#include <winrt/Microsoft.Windows.AppNotifications.h>
 /// <summary>
 /// Invoked when the application is launched.
 /// </summary>
 /// <param name="e">Details about the launch request and process.</param>
+/// 
 void App::OnLaunched(LaunchActivatedEventArgs const&)
 {
     window = make<MainWindow>();
     window.Activate();
+
+    auto manager = winrt::Microsoft::Windows::AppNotifications::AppNotificationManager::Default();
+    manager.NotificationInvoked(
+        [](auto sender, winrt::Microsoft::Windows::AppNotifications::AppNotificationActivatedEventArgs const& args)
+        {
+            OutputDebugString(args.Argument().data());
+        }
+    );
+    manager.Register();
+
 }

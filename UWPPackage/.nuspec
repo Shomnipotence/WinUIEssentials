@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>WinUIEssential.UWP</id>
-        <version>1.0.6</version>
+        <version>1.0.16</version>
         <title>WinUIEssential(UWP)</title>
         <authors>Peter</authors>
         <owners></owners>
@@ -20,10 +20,14 @@
         <file src="include/PropertyChangeHelper.hpp" target="build/native/include"/>
         <file src="include/BadgeGlyphs.hpp" target="build/native/include"/>
         <file src="include/WinUIIncludes.hpp" target="build/native/include"/>
+        <file src="include/Taskbar.h" target="build/native/include"/>
+        <file src="Export.h" target="build/native/include"/>
+        <file src="include/WindowHelper.hpp" target="build/native/include"/>
         <file src="WinUIEssential.UWP.targets" target="build/native"/>
         
         <!--lib/native-->
         <file src="..\x64\Debug\UWPPackage\UWPPackage.winmd" target="lib/native"/>
         <file src="..\x64\Debug\UWPPackage\UWPPackage.dll" target="lib/native"/>
+        <file src="..\x64\Debug\UWPPackage\UWPPackage.lib" target="lib/native/Debug/x64"/>
     </files>
 </package>
