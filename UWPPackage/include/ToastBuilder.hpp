@@ -274,6 +274,25 @@ namespace ToastBuilder
         }
         return element;
     }
+
+    inline winrt::Windows::Data::Xml::Dom::XmlElement& operator<<(winrt::Windows::Data::Xml::Dom::XmlElement& element, PropertyValue<ToastDuration> const& value)
+    {
+        if (value)
+        {
+            switch (*value.value)
+            {
+            case ToastDuration::Long:
+                element.SetAttribute(value.name, L"long");
+                break;
+            case ToastDuration::Short:
+                element.SetAttribute(value.name, L"short");
+                break;
+            default:
+                break;
+            }
+        }
+        return element;
+    }
 #pragma endregion
 
     template<typename Parent>
@@ -755,7 +774,7 @@ namespace ToastBuilder
         PropertyValue<std::wstring> m_hintInputId{ L"hint-inputid" };
         PropertyValue<std::wstring> m_hintButtonStyle{ L"hint-buttonStyle" };
         PropertyValue<std::wstring> m_hintToolTip{ L"hint-toolTip" };
-        std::function<void(Action)> m_handler;
+        std::function<void(winrt::Windows::ApplicationModel::Activation::ToastNotificationActivatedEventArgs)> m_handler;
     public:
         Action& Content(std::wstring content)
         {

@@ -73,7 +73,10 @@ namespace winrt::UWPPackage::implementation
 		{
 			isActive = convertTypeEquals(value, to);
 		}
-
+		else if (!value && !to)
+		{
+			isActive = true;
+		}
 
 		SetActive(isActive);
 	}

@@ -209,3 +209,9 @@ winrt::Windows::UI::Notifications::BadgeUpdateManager::CreateBadgeUpdaterForAppl
 winrt::Windows::UI::Notifications::BadgeUpdateManager::CreateBadgeUpdaterForApplication()
 	.Update(BadgeGlyphs::MakeBadgeNotification(1));
 ```
+
+## Triggers
+See the same class in [Community Toolkit](https://github.com/CommunityToolkit/Windows) for documentation.
+### ControlSizeTrigger --- *namespace `ControlSizeTrigger`*
+### IsEqualStateTrigger --- *namespace `IsEqualStateTrigger`*
+### IsNullOrEmptyStateTrigger --- *namespace `IsNullOrEmptyStateTrigger`*

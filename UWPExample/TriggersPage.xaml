@@ -21,10 +21,57 @@
                     <VisualState.StateTriggers>
                         <essential:ControlSizeTrigger MinWidth="400"
                                                       MaxWidth="501"
-                                                      TargetElement="{x:Bind ParentGrid}"/>
+                                                      TargetElement="{Binding ElementName=ParentGrid}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="ResizingText.Text" Value="more than 400"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="checkstate">
+                    <VisualState.StateTriggers>
+                        <!--  Checkbox is null when indeterminate  -->
+                        <essential:IsEqualStateTrigger Value="{Binding IsChecked, ElementName=checkbox, Mode=OneWay}"
+                                                      To="{x:Null}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="checkStatus.Text" Value="indeterminate" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState x:Name="sliderstate">
+                    <VisualState.StateTriggers>
+                        <essential:IsEqualStateTrigger Value="{Binding Value, ElementName=slider2, Mode=OneWay}"
+                                                      To="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="sliderStatus.Text" Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="TextBoxStates">
+                <VisualState x:Name="TextBoxNotEmptyState" />
+                <VisualState x:Name="TextBoxEmptyState">
+                    <VisualState.StateTriggers>
+                        <essential:IsNullOrEmptyStateTrigger Value="{Binding Text, ElementName=OurTextBox, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="OurTextBox.BorderBrush" Value="Red" />
+                        <Setter Target="OurTextBoxError.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="ListBoxStates">
+                <VisualState x:Name="ListNotEmptyState" />
+                <VisualState x:Name="ListEmptyState">
+                    <VisualState.StateTriggers>
+                        <essential:IsNullOrEmptyStateTrigger Value="{Binding Items, ElementName=OurList, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RemoveButton.IsEnabled" Value="False" />
+                        <Setter Target="ListEmptyMessage.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -36,7 +83,7 @@
                     Maximum="500"
                     Minimum="1"/>
             <Grid x:Name="ParentGrid"
-                  Width="{x:Bind Slider.Value, Mode=OneWay}"
+                  Width="{Binding Value, ElementName=Slider, Mode=OneWay}"
                   Height="32"
                   Background="Blue"
                   CornerRadius="4"/>
@@ -58,8 +105,61 @@
                       IsThreeState="True"/>
             <TextBlock Margin="0,8,0,0"
                        Style="{StaticResource CaptionTextBlockStyle}">
-                
+                <Run Text="Checkbox value is" />
+                <Run x:Name="checkStatus"
+                     FontWeight="SemiBold"
+                     Text="not indeterminate" />
+            </TextBlock>
+
+            <Slider x:Name="slider2"
+                    Margin="0,36,0,0"
+                    Maximum="5"
+                    Minimum="0" />
+            <TextBlock Margin="0,8,0,0"
+                       Style="{StaticResource CaptionTextBlockStyle}">
+
+                <Run Text="Slider value is" />
+                <Run x:Name="sliderStatus"
+                     FontWeight="SemiBold"
+                     Text="more than 0" />
             </TextBlock>
         </StackPanel>
+
+        <TextBlock Text="IsNullOrEmptyStateTrigger" Style="{StaticResource HeaderTextBlockStyle}"/>
+        <StackPanel HorizontalAlignment="Center"
+                    Spacing="12">
+            <TextBox x:Name="OurTextBox"
+                     Header="The TextBox below will warn if it is empty."
+                     Text="" />
+            <TextBlock x:Name="OurTextBoxError"
+                       VerticalAlignment="Center"
+                       Text="* required"
+                       Visibility="Collapsed" />
+
+            <TextBlock x:Name="ListEmptyMessage"
+                       Margin="0,24,0,0"
+                       Text="List is empty, add some items"
+                       Visibility="Collapsed" />
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="AddButton"
+                        Margin="0,0,4,0"
+                        Click="AddButton_Click"
+                        Content="Add" />
+                <Button x:Name="RemoveButton"
+                        Click="RemoveButton_Click"
+                        Content="Remove" />
+            </StackPanel>
+            <ListView x:Name="OurList"
+                      HorizontalAlignment="Left">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid>
+                            <TextBlock Text="{Binding}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
     </StackPanel>
 </Page>

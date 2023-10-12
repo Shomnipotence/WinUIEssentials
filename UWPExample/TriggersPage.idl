@@ -4,8 +4,5 @@ namespace UWPExample
     runtimeclass TriggersPage : Windows.UI.Xaml.Controls.Page
     {
         TriggersPage();
-
-        Windows.UI.Xaml.Controls.Slider Slider{ get; };
-        Windows.UI.Xaml.Controls.Grid ParentGrid{ get; };
     }
 }
