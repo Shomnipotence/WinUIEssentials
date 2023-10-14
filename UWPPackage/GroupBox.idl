@@ -1,0 +1,11 @@
+namespace UWPPackage
+{
+    [bindable]
+    [default_interface]
+    runtimeclass GroupBox : Windows.UI.Xaml.Controls.ContentControl
+    {
+        GroupBox();
+
+        String Header;
+    }
+}

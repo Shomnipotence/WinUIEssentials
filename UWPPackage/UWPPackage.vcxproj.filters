@@ -13,6 +13,9 @@
     <Filter Include="Triggers">
       <UniqueIdentifier>{521fd732-a0d4-4420-a284-7ff5c1997bb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controls\GroupBox">
+      <UniqueIdentifier>{71f464d0-b5c2-4933-ac17-7298cebef74b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -50,6 +53,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="Export.h" />
+    <ClInclude Include="include\TemplateControlHelper.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="UWPPackage.def" />
@@ -89,5 +95,13 @@
     <Midl Include="ControlSizeTrigger.idl">
       <Filter>Triggers</Filter>
     </Midl>
+    <Midl Include="GroupBox.idl">
+      <Filter>Controls\GroupBox</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="GroupBox_Resource.xaml">
+      <Filter>Controls\GroupBox</Filter>
+    </Page>
   </ItemGroup>
 </Project>

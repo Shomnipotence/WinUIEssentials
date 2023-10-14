@@ -20,6 +20,9 @@
     <Page Include="TriggersPage.xaml">
       <Filter>Pages</Filter>
     </Page>
+    <Page Include="GroupBoxPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl" />

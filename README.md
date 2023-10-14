@@ -19,9 +19,10 @@ Build the `*Package` project will build the project and pack it with nuget, then
 It should be useful until the [community toolkit](https://github.com/CommunityToolkit/WindowsCommunityToolkit) provides C++.
 
 ## Content
-|Component|UWP|WinUI3|Type|
+|Component|UWP|WinUI3|Type
 |--|--|--|--|
 |WinUIIncludes| :white_check_mark: | :x: | Header only
+|TemplateControlHelper| :white_check_mark: | :white_check_mark: | Header only
 |Glyphs| :white_check_mark: | :white_check_mark: | Header only + Xaml only
 |BadgeGlyphs| :white_check_mark: | :white_check_mark: | Header only
 |ToastTemplates| :white_check_mark: | :white_check_mark: | Header only
@@ -38,6 +39,9 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 |IsEqualStateTrigger| :white_check_mark: | :white_check_mark: | WinRT component
 |IsNullOrEmptyStateTrigger | :white_check_mark: | :white_check_mark: | WinRT component
 |ControlSizeTrigger | :white_check_mark: | :white_check_mark: | WinRT component
+|GroupBox | :white_check_mark: | :white_check_mark: | Control
+
+*means additional settings required, see the sections for info
 
 ---
 ## ToastHelper

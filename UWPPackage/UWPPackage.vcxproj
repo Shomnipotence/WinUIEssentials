@@ -167,10 +167,15 @@
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="Export.h" />
+    <ClInclude Include="GroupBox.h">
+      <DependentUpon>GroupBox.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="include\BadgeGlyphs.hpp" />
     <ClInclude Include="include\Glyphs.hpp" />
     <ClInclude Include="include\PropertyChangeHelper.hpp" />
     <ClInclude Include="include\Taskbar.h" />
+    <ClInclude Include="include\TemplateControlHelper.hpp" />
     <ClInclude Include="include\ToastBuilder.hpp" />
     <ClInclude Include="include\ToastTemplates.hpp" />
     <ClInclude Include="include\WindowHelper.hpp" />
@@ -221,6 +226,10 @@
     </ClCompile>
     <ClCompile Include="CursorController.cpp">
       <DependentUpon>CursorController.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
+    <ClCompile Include="GroupBox.cpp">
+      <DependentUpon>GroupBox.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="include\Taskbar.cpp" />
@@ -278,6 +287,9 @@
     <Midl Include="CursorController.idl">
       <SubType>Designer</SubType>
     </Midl>
+    <Midl Include="GroupBox.idl">
+      <SubType>Designer</SubType>
+    </Midl>
     <Midl Include="NegateBoolConverter.idl">
       <SubType>Designer</SubType>
     </Midl>
@@ -296,6 +308,9 @@
     <Midl Include="Triggers\IsNullOrEmptyStateTrigger.idl">
       <SubType>Designer</SubType>
     </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="GroupBox_Resource.xaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

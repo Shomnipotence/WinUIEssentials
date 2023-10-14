@@ -35,7 +35,8 @@ namespace winrt::UWPExample::implementation
             {L"ConvertersPage", winrt::xaml_typename<UWPExample::ConvertersPage>()},
             {L"BadgePage", winrt::xaml_typename<UWPExample::BadgePage>()},
             {L"TaskbarPage", winrt::xaml_typename<UWPExample::TaskbarPage>()},
-            {L"TriggersPage", winrt::xaml_typename<UWPExample::TriggersPage>()}
+            {L"TriggersPage", winrt::xaml_typename<UWPExample::TriggersPage>()},
+            {L"GroupBoxPage", winrt::xaml_typename<UWPExample::GroupBoxPage>()}
         };
     };
 }
