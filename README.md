@@ -44,6 +44,28 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 *means additional settings required, see the sections for info
 
 ---
+## WinUIIncludes
+Include the WinUI2 headers in your `pch.h`, so you don't waste your time figuring out where the compilation error comming from./
+
+Usage:
+Add this in your `pch.h`
+```cpp
+#include <WinUIIncludes.hpp>
+```
+
+## TemplateControlHelper
+Automatically call `DefaultStyleKey()` for your templated control so you don't waste your time when you forget to include this line and get an empty control.
+
+Usage: Inherit this class in your header file, make the template argument your **implementation type**.
+```cpp
+#include <TemplateControlHelper.hpp>
+...
+struct MyControl : MyControlT<MyControl>, TemplateControlHelper<MyControl>
+{
+    ...
+};
+```
+
 ## ToastHelper
 Helper for creating toast notifications.
 

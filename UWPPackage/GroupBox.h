@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "GroupBox.g.h"
-#include "TemplateControlHelper.hpp"
+#include "include/TemplateControlHelper.hpp"
 
 namespace winrt::UWPPackage::implementation
 {
@@ -9,11 +9,14 @@ namespace winrt::UWPPackage::implementation
     {
         GroupBox() = default;
 
-        winrt::hstring Header();
-        void Header(winrt::hstring value);
+        //This really should be String, but it fucked up the compilation, because of https://github.com/microsoft/microsoft-ui-xaml/issues/8994
+        //winrt::hstring Header();
+        //void Header(winrt::hstring value);
 
+        winrt::Windows::Foundation::IInspectable Header();
+        void Header(winrt::Windows::Foundation::IInspectable value);
     private:
-        winrt::hstring m_header;
+        winrt::Windows::Foundation::IInspectable m_header{ nullptr };
     };
 }
 

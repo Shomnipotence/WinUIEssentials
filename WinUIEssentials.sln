@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UWPPackage", "UWPPackage\UWPPackage.vcxproj", "{0E40EA1B-F85D-42F9-B0AF-8C50C08DD498}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UWPExample", "UWPExample\UWPExample.vcxproj", "{01C8AED1-9F5B-40E9-A3DD-02548A79EB3C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0E40EA1B-F85D-42F9-B0AF-8C50C08DD498} = {0E40EA1B-F85D-42F9-B0AF-8C50C08DD498}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{015CEE95-DABC-4E33-8980-8B5103F4FDF5}"
 	ProjectSection(SolutionItems) = preProject

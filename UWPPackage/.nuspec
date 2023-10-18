@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>WinUIEssential.UWP</id>
-        <version>1.0.21</version>
+        <version>1.1.0</version>
         <title>WinUIEssential(UWP)</title>
         <authors>Peter</authors>
         <owners></owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Essential helpers for developing WinUI(UWP)</description>
         <dependencies>
-            <group targetFramework="native"/>
+            <dependency id="Microsoft.UI.Xaml" version="2.7.0"/>
         </dependencies>
     </metadata>
     <files>

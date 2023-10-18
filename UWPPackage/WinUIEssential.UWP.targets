@@ -12,7 +12,13 @@
             <IsWinMDFile>true</IsWinMDFile>
             <Implementation>UWPPackage.dll</Implementation>
         </Reference>
-
+        
+        <Page Include="$(MSBuildThisFileDirectory)..\..\lib\native\GroupBox_Resource.xaml">
+            <DeploymentContent>true</DeploymentContent>
+        </Page>
+        <Page Include="$(MSBuildThisFileDirectory)..\..\lib\native\SettingsCard_Resource.xaml">
+            <DeploymentContent>true</DeploymentContent>
+        </Page>
         <!--<CopyFileToFolders Include="$(MSBuildThisFileDirectory)..\..\lib\native\UserControl.xaml"/>-->
     </ItemGroup>
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -21,4 +27,150 @@
         </Link>
     </ItemDefinitionGroup>
 
+    <PropertyGroup>
+        <BeforeMidlCompileTargets>
+            $(BeforeMidlCompileTargets);
+            AddDesktopExtension
+        </BeforeMidlCompileTargets>
+    </PropertyGroup>
+
+    <UsingTask TaskName="AddDesktopExtension" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+        <ParameterGroup>
+            <FilePath Required="true"/>
+        </ParameterGroup>
+        <Task>
+            <Using Namespace="System" />
+            <Using Namespace="System.IO" />
+            <Using Namespace="System.Xml" />
+            <Using Namespace="System.Text"/>
+            <Code Type="Fragment" Language="cs">
+<![CDATA[
+bool modified = false;
+string getCondition(string configuration, string platform)
+{
+    string escaped = "'?(Configuration)|?(Platform)'=='"
+    + configuration 
+    + "|"
+    + platform
+    + "'";
+    return escaped.Replace('?', '$');
+}
+
+string Project()
+{
+    string escaped = "?([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.22621.0`, ?(TargetPlatformIdentifier), ?(TargetPlatformVersion),  ?(SDKReferenceDirectoryRoot), ?(SDKExtensionDirectoryRoot), ?(SDKReferenceRegistryRoot)))\\DesignTime\\CommonConfiguration\\Neutral\\WindowsDesktop.props";
+    return escaped.Replace('?', '$');
+}
+
+string Condition()
+{
+    string escaped = "exists('?([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.22621.0`, ?(TargetPlatformIdentifier), ?(TargetPlatformVersion),  ?(SDKReferenceDirectoryRoot), ?(SDKExtensionDirectoryRoot), ?(SDKReferenceRegistryRoot)))\\DesignTime\\CommonConfiguration\\Neutral\\WindowsDesktop.props')";
+    return escaped.Replace('?', '$');
+}
+
+bool AlreadyAdded(XmlNodeList allImportGroups, XmlElement toAdd)
+{
+    foreach (XmlNode importGroup in allImportGroups)
+    {
+        if (toAdd.OuterXml == importGroup.OuterXml)
+            return true;
+    }
+    return false;
+}
+
+void AddToDocument(XmlNode projectNode)
+{
+    string Node = "ImportGroup";
+    string Label = "PropertySheets";
+
+    string ItemGroup = "ItemGroup";
+    string SDKReference = "SDKReference";
+
+
+    string[] Configurations = new string[] { "Debug", "Release" };
+    string[] Platforms = new string[] { "x64", "Win32", "ARM", "ARM64" };
+    var root = projectNode.OwnerDocument;
+
+    var allImportGroups = root.GetElementsByTagName(Node);
+    var allItemGroups = root.GetElementsByTagName(ItemGroup);
+    foreach (var configuration in Configurations)
+    {
+        foreach (var platform in Platforms)
+        {
+
+            var importGroup = root.CreateElement(Node, root.DocumentElement.NamespaceURI);
+            importGroup.SetAttribute(nameof(Label), Label);
+            importGroup.SetAttribute("Condition", getCondition(configuration, platform));
+
+            var import = root.CreateElement("Import", root.DocumentElement.NamespaceURI);
+            import.SetAttribute("Project", Project());
+            import.SetAttribute("Condition", Condition());
+            importGroup.AppendChild(import);
+
+            if (!AlreadyAdded(allImportGroups, importGroup))
+            {
+                projectNode.AppendChild(importGroup);
+                modified = true;
+            }
+        }
+    }
+    var sdkItemGroup = root.CreateElement(ItemGroup, root.DocumentElement.NamespaceURI);
+    var sdkReference = root.CreateElement(SDKReference, root.DocumentElement.NamespaceURI);
+    sdkReference.SetAttribute("Include", "WindowsDesktop, Version=10.0.22621.0");
+    sdkItemGroup.AppendChild(sdkReference);
+    if(!AlreadyAdded(allItemGroups, sdkItemGroup))
+    {
+        projectNode.AppendChild(sdkItemGroup); 
+        modified = true;
+    }
+}
+
+void WriteToFile(string filePath, string content)
+{
+    using (var writer = new StreamWriter(filePath))
+    {
+        writer.Write(content);
+    }
+}
+
+string FormatXml(XmlDocument xd)
+{
+    StringBuilder sb = new StringBuilder();
+    StringWriter sw = new StringWriter(sb);
+    XmlTextWriter xtw = null;
+    try
+    {
+        xtw = new XmlTextWriter(sw);
+        xtw.Formatting = Formatting.Indented;
+        xd.WriteTo(xtw);
+    }
+    finally
+    {
+        if (xtw != null)
+            xtw.Close();
+    }
+    return sb.ToString();
+}
+
+XmlDocument document = new XmlDocument();
+document.Load(FilePath);
+
+var project = document.ChildNodes[1];
+AddToDocument(project);
+
+if(modified)
+{
+    var result = FormatXml(document);
+    WriteToFile(FilePath, result);
+    Log.LogWarning("Modified: " + FilePath);
+}
+]]>
+            </Code>
+        </Task>
+    </UsingTask>
+
+    <Target Name="AddDesktopExtension">
+        <Message Importance="high" Text="Checking $(MSBuildProjectFullPath) for [DesktopExtensions]"/>
+        <AddDesktopExtension FilePath="$(MSBuildProjectFullPath)"/>
+    </Target>
 </Project>

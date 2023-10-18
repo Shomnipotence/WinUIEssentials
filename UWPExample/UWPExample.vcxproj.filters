@@ -23,6 +23,10 @@
     <Page Include="GroupBoxPage.xaml">
       <Filter>Pages</Filter>
     </Page>
+    <Page Include="CharmBarPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)..\..\lib\native\GroupBox_Resource.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl" />

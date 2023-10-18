@@ -16,6 +16,9 @@
     <Filter Include="Controls\GroupBox">
       <UniqueIdentifier>{71f464d0-b5c2-4933-ac17-7298cebef74b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controls\SettingsCard">
+      <UniqueIdentifier>{067bcf75-9e30-466d-826c-8dcc962eadc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -98,10 +101,18 @@
     <Midl Include="GroupBox.idl">
       <Filter>Controls\GroupBox</Filter>
     </Midl>
+    <Midl Include="SettingsPaneEx.idl" />
+    <Midl Include="SettingsCommandEx.idl" />
+    <Midl Include="SettingsCard.idl">
+      <Filter>Controls\SettingsCard</Filter>
+    </Midl>
   </ItemGroup>
   <ItemGroup>
     <Page Include="GroupBox_Resource.xaml">
       <Filter>Controls\GroupBox</Filter>
+    </Page>
+    <Page Include="SettingsCard_Resource.xaml">
+      <Filter>Controls\SettingsCard</Filter>
     </Page>
   </ItemGroup>
 </Project>

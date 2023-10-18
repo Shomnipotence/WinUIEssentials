@@ -6,11 +6,11 @@
 
 namespace winrt::UWPPackage::implementation
 {
-	winrt::hstring GroupBox::Header()
+	winrt::Windows::Foundation::IInspectable GroupBox::Header()
 	{
 		return m_header;
 	}
-	void GroupBox::Header(winrt::hstring value)
+	void GroupBox::Header(winrt::Windows::Foundation::IInspectable value)
 	{
 		m_header = value;
 	}

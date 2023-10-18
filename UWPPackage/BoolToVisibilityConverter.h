@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "BoolToVisibilityConverter.g.h"
-#include "ReverseConverterBase.hpp"`
+#include "ReverseConverterBase.hpp"
 
 namespace winrt::UWPPackage::implementation
 {

@@ -15,3 +15,5 @@
 #include <winrt/Windows.UI.Xaml.Navigation.h>
 #include <winrt/UWPPackage.h>
 #include <winrt/Windows.UI.Xaml.Shapes.h>
+#include <winrt/Windows.UI.Popups.h>
+#include <WinUIIncludes.hpp>
