@@ -14,8 +14,8 @@ namespace winrt::UWPExample::implementation
         }
 
         void NavigationView_SelectionChanged(
-            winrt::Windows::UI::Xaml::Controls::NavigationView const& sender,
-            winrt::Windows::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs const& args);
+            winrt::Microsoft::UI::Xaml::Controls::NavigationView const& sender,
+            winrt::Microsoft::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs const& args);
 
         winrt::Windows::Foundation::Collections::IVector<winrt::Windows::Foundation::IInspectable> Pages()
         {
@@ -37,7 +37,8 @@ namespace winrt::UWPExample::implementation
             {L"TaskbarPage", winrt::xaml_typename<UWPExample::TaskbarPage>()},
             {L"TriggersPage", winrt::xaml_typename<UWPExample::TriggersPage>()},
             {L"GroupBoxPage", winrt::xaml_typename<UWPExample::GroupBoxPage>()},
-            {L"CharmBarPage", winrt::xaml_typename<UWPExample::CharmBarPage>()}
+            {L"CharmBarPage", winrt::xaml_typename<UWPExample::CharmBarPage>()},
+            {L"SettingsCardPage", winrt::xaml_typename<UWPExample::SettingsCardPage>()}
         };
     };
 }

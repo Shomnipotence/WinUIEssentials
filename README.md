@@ -13,6 +13,8 @@ Open the `WinUIEssential.sln` containing 4 projects:
 
 Build the `*Package` project will build the project and pack it with nuget, then install the nuget to your project and start using it.
 
+To build the `*Example` project, do the same thing. They did not reference `*Package` for demo purposes.
+
 > [!NOTE]
 > Functionalities for UWP and WinUI3 should be exactly the same unless otherwise noted!
 
@@ -40,6 +42,7 @@ It should be useful until the [community toolkit](https://github.com/CommunityTo
 |IsNullOrEmptyStateTrigger | :white_check_mark: | :white_check_mark: | WinRT component
 |ControlSizeTrigger | :white_check_mark: | :white_check_mark: | WinRT component
 |GroupBox | :white_check_mark: | :white_check_mark: | Control
+|SettingsCard | :white_check_mark: | :white_check_mark: | Control
 
 *means additional settings required, see the sections for info
 
@@ -241,3 +244,6 @@ See the same class in [Community Toolkit](https://github.com/CommunityToolkit/Wi
 ### ControlSizeTrigger --- *namespace `ControlSizeTrigger`*
 ### IsEqualStateTrigger --- *namespace `IsEqualStateTrigger`*
 ### IsNullOrEmptyStateTrigger --- *namespace `IsNullOrEmptyStateTrigger`*
+
+## SettingsCard
+See the same class in [Community Tookit](https://github.com/CommunityToolkit/Windows) for documentation.

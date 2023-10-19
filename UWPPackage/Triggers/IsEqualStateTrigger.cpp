@@ -93,22 +93,21 @@ namespace winrt::UWPPackage::implementation
 			if (object1Converted && object2Converted)
 				return object1Converted == object2Converted;
 		}
-		//{
-		//	auto object1Converted = winrt::unbox_value<ContentAlignment>(object1);
-		//	auto object2Converted = object2.try_as<winrt::hstring>();
-		//	switch (object1Converted)
-		//	{
-		//	case winrt::UWPPackage::ContentAlignment::Right:
-		//		return object2Converted == L"Right";
-
-		//	case winrt::UWPPackage::ContentAlignment::Left:
-		//		return object2Converted == L"Left";
-		//	case winrt::UWPPackage::ContentAlignment::Vertical:
-		//		return object2Converted == L"Vertical";
-		//	default:
-		//		false;
-		//	}
-		//}
+		{
+			auto object1Converted = winrt::unbox_value<ContentAlignment>(object1);
+			auto object2Converted = object2.try_as<winrt::hstring>();
+			switch (object1Converted)
+			{
+			case winrt::UWPPackage::ContentAlignment::Right:
+				return object2Converted == L"Right";
+			case winrt::UWPPackage::ContentAlignment::Left:
+				return object2Converted == L"Left";
+			case winrt::UWPPackage::ContentAlignment::Vertical:
+				return object2Converted == L"Vertical";
+			default:
+				false;
+			}
+		}
 		//try object comparison
 		{
 			return object1 == object2;

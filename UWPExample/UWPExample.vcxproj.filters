@@ -27,6 +27,9 @@
       <Filter>Pages</Filter>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)..\..\lib\native\GroupBox_Resource.xaml" />
+    <Page Include="SettingsCardPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="App.idl" />

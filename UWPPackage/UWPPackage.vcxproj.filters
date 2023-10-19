@@ -19,6 +19,9 @@
     <Filter Include="Controls\SettingsCard">
       <UniqueIdentifier>{067bcf75-9e30-466d-826c-8dcc962eadc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controls\SettingsExpander">
+      <UniqueIdentifier>{87ccb50b-6d50-446a-a638-27eac1a5aa15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
